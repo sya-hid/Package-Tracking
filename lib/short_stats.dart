@@ -6,6 +6,22 @@ class ShortStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<Map<String, dynamic>> short = [
+      {
+        "color": Colors.blue,
+        "numOfBrands": 156,
+        "category": "Active Package",
+        "image":
+            "assets/png-clipart-ride-to-send-delivery-brother-cartoon-characters-shunfeng-courier-thumbnail.png"
+      },
+      {
+        "color": Colors.orange,
+        "numOfBrands": 16,
+        "category": "Sended Package",
+        "image":
+            "assets/png-clipart-ride-to-send-delivery-brother-cartoon-characters-shunfeng-courier-thumbnail.png"
+      },
+    ];
     return Column(
       children: [
         SectionTitle(text: 'Short Stats', press: () {}),
@@ -15,13 +31,15 @@ class ShortStats extends StatelessWidget {
           child: Row(
             children: [
               ...List.generate(
-                3,
+                short.length,
                 (index) => ShortStatsCard(
-                    category: 'Active Package',
-                    // image: image,
-                    numOfBrands: 156,
+                    color: short[index]['color'],
+                    category: short[index]['category'],
+                    image: short[index]['image'],
+                    numOfBrands: short[index]['numOfBrands'],
                     press: () {}),
-              )
+              ),
+              SizedBox(width: 20)
             ],
           ),
         )
@@ -31,64 +49,55 @@ class ShortStats extends StatelessWidget {
 }
 
 class ShortStatsCard extends StatelessWidget {
-  final String category;
-  // final String image;
+  final String category, image;
   final int numOfBrands;
+  final Color color;
   final GestureTapCallback press;
   const ShortStatsCard({
     Key key,
     @required this.category,
-    // @required this.image,
     @required this.numOfBrands,
     @required this.press,
+    @required this.color,
+    this.image,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(left: 20),
-      child: SizedBox(
-        width: 242,
-        height: 100,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(20),
-          child: Stack(
-            children: [
-              // Image.asset(image, fit: BoxFit.cover),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.blue,
-                  // gradient: LinearGradient(
-                  //   begin: Alignment.topCenter,
-                  //   end: Alignment.bottomCenter,
-                  //   colors: [
-                  //     Color(0xFF343434).withOpacity(0.4),
-                  //     Color(0xFF343434).withOpacity(0.15)
-                  //   ],
-                  // ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-                child: Text.rich(
-                  TextSpan(
-                    style: TextStyle(color: Colors.white),
-                    children: [
-                      TextSpan(
-                        text: "$category\n",
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      TextSpan(text: "$numOfBrands Brands")
-                    ],
-                  ),
-                ),
-              ),
-            ],
+    return Container(
+      margin: const EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      width: 272,
+      height: 100,
+      decoration: BoxDecoration(
+        color: color,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            height: 50,
+            width: 50,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset("$image"),
+            ),
           ),
-        ),
+          Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                    text: '$numOfBrands\n',
+                    style:
+                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                TextSpan(text: '$category'),
+              ],
+            ),
+          ),
+          Icon(Icons.arrow_forward_ios_rounded)
+        ],
       ),
     );
   }

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:package_tracker/bottom_nav.dart';
-import 'package:package_tracker/currently_active.dart';
+import 'package:package_tracker/home.dart';
 import 'package:package_tracker/page_provider.dart';
 import 'package:package_tracker/shipments.dart';
-import 'package:package_tracker/short_stats.dart';
 import 'package:package_tracker/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -50,74 +49,13 @@ class _MainPageState extends State<MainPage> {
           return ShipmentsPage(title: 'Shipments');
           break;
         default:
-          return MyHomePage(
-            title: 's',
-          );
+          return Home();
       }
     }
 
     return Scaffold(
       bottomNavigationBar: BottomNav(),
       body: body(),
-    );
-  }
-}
-
-class Home extends StatelessWidget {
-  const Home({Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text('Monitor your', style: TextStyle(fontSize: 22)),
-                Text(
-                  'Shipments today!',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  // height: 50,
-                  decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: TextField(
-                    autofocus: false,
-                    onChanged: (value) {},
-                    decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        hintText: "Search Product",
-                        prefixIcon: Icon(Icons.search),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 9)),
-                  ),
-                ),
-                Icon(Icons.qr_code_scanner)
-              ],
-            ),
-          ),
-          SizedBox(height: 30),
-          ShortStats(),
-          SizedBox(height: 30),
-          CurrentlyActive()
-        ],
-      ),
     );
   }
 }

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:package_tracker/section_title.dart';
 
@@ -8,47 +6,52 @@ class CurrentlyActive extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SectionTitle(text: 'Currently Active', press: () {}),
-        SizedBox(height: 20),
-        Container(
-          height: 300,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                ...List.generate(
-                  5,
-                  (index) => Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: ActiveCard(
-                        category: 'Active Package',
-                        image: '',
-                        numOfBrands: 156,
-                        press: () {}),
-                  ),
-                )
-              ],
+    return Container(
+      child: Column(
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SectionTitle(text: 'Currently Active', press: () {}),
+          SizedBox(height: 20),
+          Expanded(
+            child: Container(
+              // height: 300,
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: [
+                    ...List.generate(
+                      5,
+                      (index) => Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 10),
+                        child: ActiveCard(
+                            name: 'Macbook Pro 13 inchi',
+                            currentlocation: 'Gateway Jakarta',
+                            status: 'Received At Origin Gateway',
+                            nopaket: '0578 7363 9867',
+                            press: () {}),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }
 
 class ActiveCard extends StatelessWidget {
-  final String category;
-  final String image;
-  final int numOfBrands;
+  final String name, nopaket, currentlocation, status;
   final GestureTapCallback press;
   const ActiveCard({
     Key key,
-    @required this.category,
-    @required this.image,
-    @required this.numOfBrands,
     @required this.press,
+    @required this.name,
+    @required this.nopaket,
+    @required this.currentlocation,
+    @required this.status,
   }) : super(key: key);
 
   @override
@@ -64,7 +67,7 @@ class ActiveCard extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.greenAccent,
+                  color: Colors.grey.withOpacity(0.2),
                 ),
               ),
               Padding(
@@ -76,23 +79,32 @@ class ActiveCard extends StatelessWidget {
                         Container(
                           width: 100,
                           height: 100,
-                          child: Image.asset(
-                              'assets/png-clipart-ride-to-send-delivery-brother-cartoon-characters-shunfeng-courier-thumbnail.png'),
+                          // decoration: BoxDecoration(
+                          //     borderRadius: BorderRadius.circular(20)),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                                'assets/png-clipart-ride-to-send-delivery-brother-cartoon-characters-shunfeng-courier-thumbnail.png'),
+                          ),
                         ),
+                        SizedBox(width: 15),
                         Text.rich(
                           TextSpan(
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                             children: [
                               TextSpan(
-                                text: "$category\n",
+                                text: "$name\n",
                                 style: TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
-                              TextSpan(text: "$numOfBrands Brands\n"),
-                              TextSpan(text: "$numOfBrands Brands\n"),
-                              TextSpan(text: "$numOfBrands Brands\n"),
+                              TextSpan(
+                                  text: "No. $nopaket\n",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
+                              TextSpan(text: "$status\n"),
+                              TextSpan(text: "$currentlocation\n"),
                             ],
                           ),
                         ),
@@ -116,7 +128,11 @@ class ActiveCard extends StatelessWidget {
                               Text.rich(
                                 TextSpan(children: [
                                   TextSpan(text: 'From\n'),
-                                  TextSpan(text: 'Jakarta'),
+                                  TextSpan(
+                                      text: 'Jakarta',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold)),
                                 ]),
                               ),
                             ],
@@ -136,7 +152,11 @@ class ActiveCard extends StatelessWidget {
                               Text.rich(
                                 TextSpan(children: [
                                   TextSpan(text: 'Destionation\n'),
-                                  TextSpan(text: 'Pekalingan'),
+                                  TextSpan(
+                                      text: 'Pekalongan',
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold)),
                                 ]),
                               ),
                             ],
