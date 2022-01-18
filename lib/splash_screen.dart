@@ -34,7 +34,7 @@ class _SplahScreenState extends State<SplahScreen> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.35,
                     width: MediaQuery.of(context).size.width * 0.8,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -75,6 +75,7 @@ class _SplahScreenState extends State<SplahScreen> {
                                     style: GoogleFonts.poppins().copyWith(
                                         height: 2,
                                         fontSize: 14,
+                                        color: Colors.grey,
                                         fontWeight: FontWeight.normal),
                                   ),
                                 ],
@@ -82,51 +83,48 @@ class _SplahScreenState extends State<SplahScreen> {
                             ),
                           ),
                         ),
+                        SizedBox(height: 15),
                         //titik 3
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10),
-                          child: Container(
-                            height: 10,
-                            child: Column(
-                              children: <Widget>[
-                                Spacer(),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: List.generate(
-                                    3,
-                                    (index) => buildDot(index: index),
-                                  ),
+                        Container(
+                          height: 10,
+                          child: Column(
+                            children: <Widget>[
+                              Spacer(),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: List.generate(
+                                  3,
+                                  (index) => buildDot(index: index),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
+                        SizedBox(height: 15),
                         //button
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
-                          child: Container(
-                            height: 50,
-                            width: 250,
-                            decoration: BoxDecoration(
-                              color: Colors.orangeAccent,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(20),
-                              ),
+                        Container(
+                          height: 50,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            color: Colors.orangeAccent,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
                             ),
-                            child: FlatButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => MainPage()));
-                                },
-                                child: Text(
-                                  'Get Started',
-                                  style: GoogleFonts.poppins()
-                                      .copyWith(color: Colors.white),
-                                )),
                           ),
-                        )
+                          child: FlatButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MainPage()));
+                              },
+                              child: Text(
+                                'Get Started',
+                                style: GoogleFonts.poppins()
+                                    .copyWith(color: Colors.white),
+                              )),
+                        ),
+                        SizedBox(height: 20),
                       ],
                     ),
                   ),

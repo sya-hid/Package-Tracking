@@ -28,6 +28,7 @@ class Peta extends StatelessWidget {
         //   print(
         //       "${location.first.countryName} - ${location.first.locality} - ${location.first.featureName}");
         // },
+        enableMultiFingerGestureRace: true,
         center: LatLng(0.621, 101.417),
         zoom: zoom,
       ),

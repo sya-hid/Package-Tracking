@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:latlong/latlong.dart';
 import 'package:package_tracker/currently_active.dart';
 import 'package:package_tracker/detail_page.dart';
 
@@ -24,10 +25,8 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
+          color: Colors.grey.withOpacity(0.2),
+          icon: ClipOval(child: Image.asset("assets/profile.png")),
           onPressed: () {},
         ),
         actions: <Widget>[
@@ -101,6 +100,7 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: ActiveCard(
+                            latlang: LatLng(0.621, 101.417),
                             name: 'Macbook Pro 13 inch',
                             currentlocation: 'Gateway Jakrta',
                             status: 'Received At Origin Gateway',

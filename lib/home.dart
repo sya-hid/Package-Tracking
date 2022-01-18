@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:latlong/latlong.dart';
 import 'package:package_tracker/currently_active.dart';
 import 'package:package_tracker/detail_page.dart';
 import 'package:package_tracker/section_title.dart';
@@ -15,17 +16,16 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.black,
-          ),
+          color: Colors.grey.withOpacity(0.2),
+          icon: ClipOval(child: Image.asset("assets/profile.png")),
           onPressed: () {},
         ),
-        actions: <Widget>[
+        actions: [
           IconButton(
             icon: Icon(
               Icons.notifications_active_outlined,
               color: Colors.black,
+              // size: 32,
             ),
             onPressed: () {},
           )
@@ -56,28 +56,39 @@ class Home extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  width: MediaQuery.of(context).size.width * 0.75,
-                  // height: 50,
-                  decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.1),
-                      borderRadius: BorderRadius.circular(15)),
-                  child: TextField(
-                    autofocus: false,
-                    onChanged: (value) {},
-                    decoration: InputDecoration(
-                      enabledBorder: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      hintText: "Enter your tracking number",
-                      prefixIcon: Icon(Icons.search),
-                      contentPadding: EdgeInsets.symmetric(
-                        horizontal: 20,
-                        vertical: 9,
-                      ),
+                Expanded(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.1),
+                        borderRadius: BorderRadius.circular(15)),
+                    child: TextField(
+                      style: GoogleFonts.poppins()
+                          .copyWith(fontSize: 16, color: Colors.grey),
+                      autofocus: false,
+                      onChanged: (value) {},
+                      decoration: InputDecoration(
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          hintText: "Enter your tracking number",
+                          hintStyle: GoogleFonts.poppins().copyWith(
+                            fontSize: 16,
+                            color: Colors.grey,
+                          ),
+                          prefixIcon: Icon(Icons.search),
+                          contentPadding: const EdgeInsets.all(16)),
                     ),
                   ),
                 ),
-                Icon(Icons.qr_code_scanner)
+                SizedBox(width: 15),
+                Container(
+                    padding: const EdgeInsets.all(10),
+                    decoration: BoxDecoration(
+                        color: Colors.orange,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Icon(
+                      Icons.qr_code_scanner_outlined,
+                      color: Colors.white,
+                    ))
               ],
             ),
           ),
@@ -98,6 +109,7 @@ class Home extends StatelessWidget {
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: ActiveCard(
+                            latlang: LatLng(0.621, 101.417),
                             name: 'Macbook Pro 13 inch',
                             currentlocation: 'Gateway Jakrta',
                             status: 'Received At Origin Gateway',

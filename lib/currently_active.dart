@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:latlong/latlong.dart';
@@ -27,6 +29,7 @@ class CurrentlyActive extends StatelessWidget {
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: ActiveCard(
+                            latlang: LatLng(0.621, 101.417),
                             name: 'Macbook Pro 13 inchi mahal',
                             currentlocation: 'Gateway Jakarta',
                             status: 'Received At Origin Gateway',
@@ -48,6 +51,7 @@ class CurrentlyActive extends StatelessWidget {
 class ActiveCard extends StatelessWidget {
   final String name, nopaket, currentlocation, status;
   final GestureTapCallback press;
+  final LatLng latlang;
   const ActiveCard({
     Key key,
     @required this.press,
@@ -55,11 +59,12 @@ class ActiveCard extends StatelessWidget {
     @required this.nopaket,
     @required this.currentlocation,
     @required this.status,
+    @required this.latlang,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    LatLng point = LatLng(0.621, 101.417);
+    LatLng point = latlang;
     return GestureDetector(
       onTap: press,
       child: Padding(
@@ -88,7 +93,7 @@ class ActiveCard extends StatelessWidget {
                             // decoration: BoxDecoration(
                             //     borderRadius: BorderRadius.circular(20)),
                             child: ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(10),
                                 child: Peta(
                                   point: point,
                                   zoom: 10,
@@ -105,7 +110,7 @@ class ActiveCard extends StatelessWidget {
                                 style: GoogleFonts.poppins().copyWith(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w600,
-                                    color: Colors.grey),
+                                    color: Colors.grey.withOpacity(0.7)),
                               ),
                               Text('No. $nopaket',
                                   style: GoogleFonts.poppins().copyWith(
@@ -116,12 +121,12 @@ class ActiveCard extends StatelessWidget {
                                   style: GoogleFonts.poppins().copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.grey)),
+                                      color: Colors.grey.withOpacity(0.7))),
                               Text('$currentlocation',
                                   style: GoogleFonts.poppins().copyWith(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
-                                      color: Colors.grey)),
+                                      color: Colors.grey.withOpacity(0.7))),
                             ],
                           ),
                         ],
@@ -179,7 +184,7 @@ class ActiveCard extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                             color: Colors.grey)),
                                     TextSpan(
-                                        text: 'Pekalongan',
+                                        text: 'Pekanbaru',
                                         style: GoogleFonts.poppins().copyWith(
                                             fontSize: 16,
                                             fontWeight: FontWeight.bold)),
