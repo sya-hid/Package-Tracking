@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class SectionTitle extends StatelessWidget {
   final String text;
@@ -18,7 +19,7 @@ class SectionTitle extends StatelessWidget {
         children: [
           Text(
             text,
-            style: TextStyle(
+            style: GoogleFonts.poppins().copyWith(
               fontSize: 18,
               color: Colors.black,
             ),

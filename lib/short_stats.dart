@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:package_tracker/section_title.dart';
 
 class ShortStats extends StatelessWidget {
@@ -91,7 +92,7 @@ class ShortStatsCard extends StatelessWidget {
                 TextSpan(
                     text: '$numOfBrands\n',
                     style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                        GoogleFonts.poppins().copyWith(fontSize: 18, fontWeight: FontWeight.bold)),
                 TextSpan(text: '$category'),
               ],
             ),

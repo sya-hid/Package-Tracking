@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:package_tracker/currently_active.dart';
+import 'package:package_tracker/detail_page.dart';
 
 class ShipmentsPage extends StatefulWidget {
   const ShipmentsPage({Key key, @required this.title}) : super(key: key);
@@ -45,10 +47,13 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text.rich(TextSpan(children: [
-              TextSpan(text: 'Your ', style: TextStyle(fontSize: 24)),
+              TextSpan(
+                  text: 'Your ',
+                  style: GoogleFonts.poppins().copyWith(fontSize: 24)),
               TextSpan(
                   text: 'Shipments',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold))
+                  style: GoogleFonts.poppins()
+                      .copyWith(fontSize: 24, fontWeight: FontWeight.bold))
             ])),
           ),
           SizedBox(height: 20),
@@ -72,7 +77,7 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
                           vertical: 5, horizontal: 20),
                       child: Text(
                         type[index]['text'],
-                        style: TextStyle(
+                        style: GoogleFonts.poppins().copyWith(
                             fontSize: 16,
                             color: type[index]['status'] == "active"
                                 ? Colors.white
@@ -100,7 +105,12 @@ class _ShipmentsPageState extends State<ShipmentsPage> {
                             currentlocation: 'Gateway Jakrta',
                             status: 'Received At Origin Gateway',
                             nopaket: '0578 7363 9867',
-                            press: () {}),
+                            press: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailPage()));
+                            }),
                       ),
                     )
                   ],

@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           '/': (context) => SplahScreen(),
-          '/home': (context) => MyHomePage(title: 'title')
         },
       ),
     );
@@ -48,9 +47,6 @@ class _MainPageState extends State<MainPage> {
           break;
         case 1:
           return ShipmentsPage(title: 'Shipments');
-          break;
-        case 2:
-          return DetailPage();
           break;
         default:
           return Home();

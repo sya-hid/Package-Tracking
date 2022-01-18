@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:package_tracker/detail_page.dart';
 import 'package:package_tracker/main.dart';
 
 class SplahScreen extends StatefulWidget {
@@ -60,7 +62,7 @@ class _SplahScreenState extends State<SplahScreen> {
                                   Text(
                                     'Easily track your shipments in real time',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins().copyWith(
                                         height: 1.5,
                                         fontSize: 22,
                                         fontWeight: FontWeight.bold),
@@ -71,7 +73,7 @@ class _SplahScreenState extends State<SplahScreen> {
                                   Text(
                                     'The day of delivery you can see your couriers location on a map in real time.',
                                     textAlign: TextAlign.center,
-                                    style: TextStyle(
+                                    style: GoogleFonts.poppins().copyWith(
                                         height: 2,
                                         fontSize: 14,
                                         fontWeight: FontWeight.normal),
@@ -121,7 +123,8 @@ class _SplahScreenState extends State<SplahScreen> {
                                 },
                                 child: Text(
                                   'Get Started',
-                                  style: TextStyle(color: Colors.white),
+                                  style: GoogleFonts.poppins()
+                                      .copyWith(color: Colors.white),
                                 )),
                           ),
                         )

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:package_tracker/currently_active.dart';
+import 'package:package_tracker/detail_page.dart';
 import 'package:package_tracker/section_title.dart';
 import 'package:package_tracker/short_stats.dart';
 
@@ -38,10 +40,12 @@ class Home extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Monitor your', style: TextStyle(fontSize: 22)),
+                Text('Monitor your',
+                    style: GoogleFonts.poppins().copyWith(fontSize: 22)),
                 Text(
                   'Shipments today!',
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: GoogleFonts.poppins()
+                      .copyWith(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -95,7 +99,14 @@ class Home extends StatelessWidget {
                             currentlocation: 'Gateway Jakrta',
                             status: 'Received At Origin Gateway',
                             nopaket: '0578 7363 9867',
-                            press: () {}),
+                            press: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => DetailPage(),
+                                ),
+                              );
+                            }),
                       ),
                     )
                   ],
