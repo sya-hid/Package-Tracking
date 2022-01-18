@@ -91,13 +91,23 @@ class ShortStatsCard extends StatelessWidget {
               children: [
                 TextSpan(
                     text: '$numOfBrands\n',
-                    style:
-                        GoogleFonts.poppins().copyWith(fontSize: 18, fontWeight: FontWeight.bold)),
-                TextSpan(text: '$category'),
+                    style: GoogleFonts.poppins().copyWith(
+                        fontSize: 20,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold)),
+                TextSpan(
+                    text: '$category',
+                    style: GoogleFonts.poppins().copyWith(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.white)),
               ],
             ),
           ),
-          Icon(Icons.arrow_forward_ios_rounded)
+          Icon(
+            Icons.arrow_forward_ios_rounded,
+            color: Colors.white,
+          )
         ],
       ),
     );

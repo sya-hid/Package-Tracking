@@ -25,9 +25,17 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: ^2.2.0
-  google_maps: ^6.0.0
-  map: ^1.0.0
+  flutter_map: any
+  geocoder: ^0.2.1
+  geocoding: ^1.0.5
+  latlong: ^0.6.1
+  meta: ^1.1.0
   provider: ^6.0.2
+  positioned_tap_detector_2: ^1.0.0
+  tuple: ^1.0.2
+  vector_math: ^2.0.0
+  animations: ^2.0.0
+  async: ^2.1.0
 
 dev_dependencies:
   flutter_test:

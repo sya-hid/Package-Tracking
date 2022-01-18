@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:latlong/latlong.dart';
+import 'package:package_tracker/peta.dart';
 import 'package:package_tracker/section_title.dart';
 
 class CurrentlyActive extends StatelessWidget {
@@ -57,6 +59,7 @@ class ActiveCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    LatLng point = LatLng(0.621, 101.417);
     return GestureDetector(
       onTap: press,
       child: Padding(
@@ -85,10 +88,11 @@ class ActiveCard extends StatelessWidget {
                             // decoration: BoxDecoration(
                             //     borderRadius: BorderRadius.circular(20)),
                             child: ClipRRect(
-                              borderRadius: BorderRadius.circular(20),
-                              child: Image.asset(
-                                  'assets/png-clipart-ride-to-send-delivery-brother-cartoon-characters-shunfeng-courier-thumbnail.png'),
-                            ),
+                                borderRadius: BorderRadius.circular(20),
+                                child: Peta(
+                                  point: point,
+                                  zoom: 10,
+                                )),
                           ),
                           SizedBox(width: 15),
                           Column(
@@ -99,13 +103,25 @@ class ActiveCard extends StatelessWidget {
                                 '$name',
                                 maxLines: 1,
                                 style: GoogleFonts.poppins().copyWith(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.grey),
                               ),
-                              Text('No. $nopaket'),
-                              Text('$status'),
-                              Text('$currentlocation'),
+                              Text('No. $nopaket',
+                                  style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text('$status',
+                                  style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.grey)),
+                              Text('$currentlocation',
+                                  style: GoogleFonts.poppins().copyWith(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.grey)),
                             ],
                           ),
                         ],
@@ -127,7 +143,12 @@ class ActiveCard extends StatelessWidget {
                                 SizedBox(width: 10),
                                 Text.rich(
                                   TextSpan(children: [
-                                    TextSpan(text: 'From\n'),
+                                    TextSpan(
+                                        text: 'From\n',
+                                        style: GoogleFonts.poppins().copyWith(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.grey)),
                                     TextSpan(
                                         text: 'Jakarta',
                                         style: GoogleFonts.poppins().copyWith(
@@ -151,7 +172,12 @@ class ActiveCard extends StatelessWidget {
                                 SizedBox(width: 10),
                                 Text.rich(
                                   TextSpan(children: [
-                                    TextSpan(text: 'Destionation\n'),
+                                    TextSpan(
+                                        text: 'Destionation\n',
+                                        style: GoogleFonts.poppins().copyWith(
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colors.grey)),
                                     TextSpan(
                                         text: 'Pekalongan',
                                         style: GoogleFonts.poppins().copyWith(

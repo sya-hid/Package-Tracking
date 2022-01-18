@@ -21,10 +21,17 @@ class SectionTitle extends StatelessWidget {
             text,
             style: GoogleFonts.poppins().copyWith(
               fontSize: 18,
+              fontWeight: FontWeight.bold,
               color: Colors.black,
             ),
           ),
-          GestureDetector(onTap: press, child: Text("Show All"))
+          GestureDetector(
+              onTap: press,
+              child: Text(
+                "Show All",
+                style: GoogleFonts.poppins().copyWith(
+                    fontSize: 16, color: Colors.grey.withOpacity(0.5)),
+              ))
         ],
       ),
     );

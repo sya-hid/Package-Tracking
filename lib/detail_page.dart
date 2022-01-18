@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:latlong/latlong.dart';
+import 'package:package_tracker/peta.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({Key key}) : super(key: key);
 
+  @override
+  _DetailPageState createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  LatLng point = LatLng(0.621, 101.417);
+  var location = [];
+  bool loc = false;
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> deliveryStatus = [
@@ -14,6 +24,7 @@ class DetailPage extends StatelessWidget {
       {"status": "Transit - Sending City", "location": "Jakarta, Indonesia"},
       {"status": "Send from Jakarta", "location": "Jakarta, Indonesia"},
     ];
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -30,11 +41,11 @@ class DetailPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(
-              Icons.more_horiz,
+              Icons.more_vert,
               color: Colors.black,
             ),
             onPressed: () {},
-          )
+          ),
         ],
       ),
       body: Padding(
@@ -44,8 +55,6 @@ class DetailPage extends StatelessWidget {
           children: [
             SizedBox(height: 20),
             Container(
-              // margin: const EdgeInsets.all(20),
-              // padding: const EdgeInsets.all(20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -63,7 +72,6 @@ class DetailPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Container(
-              // margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(20),
@@ -123,20 +131,15 @@ class DetailPage extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Container(
-              // margin: const EdgeInsets.all(20),
-              padding: const EdgeInsets.all(20),
               width: MediaQuery.of(context).size.width,
               height: 200,
-              decoration: BoxDecoration(
-                color: Colors.greenAccent,
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(25),
+                child: Peta(point: point,zoom: 15,),
               ),
-              child: Text('Map'),
             ),
             SizedBox(height: 20),
             Container(
-                // margin: const EdgeInsets.all(20),
-                // padding: const EdgeInsets.all(20),
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -66,12 +66,15 @@ class Home extends StatelessWidget {
                     autofocus: false,
                     onChanged: (value) {},
                     decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        hintText: "Enter your tracking number",
-                        prefixIcon: Icon(Icons.search),
-                        contentPadding:
-                            EdgeInsets.symmetric(horizontal: 20, vertical: 9)),
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      hintText: "Enter your tracking number",
+                      prefixIcon: Icon(Icons.search),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: 20,
+                        vertical: 9,
+                      ),
+                    ),
                   ),
                 ),
                 Icon(Icons.qr_code_scanner)

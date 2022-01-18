@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:package_tracker/bottom_nav.dart';
-import 'package:package_tracker/detail_page.dart';
 import 'package:package_tracker/home.dart';
 import 'package:package_tracker/page_provider.dart';
 import 'package:package_tracker/shipments.dart';
