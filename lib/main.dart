@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:package_tracker/bottom_nav.dart';
+import 'package:package_tracker/detail_page.dart';
 import 'package:package_tracker/home.dart';
 import 'package:package_tracker/page_provider.dart';
 import 'package:package_tracker/shipments.dart';
@@ -47,6 +48,9 @@ class _MainPageState extends State<MainPage> {
           break;
         case 1:
           return ShipmentsPage(title: 'Shipments');
+          break;
+        case 2:
+          return DetailPage();
           break;
         default:
           return Home();

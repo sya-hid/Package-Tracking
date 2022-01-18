@@ -24,7 +24,7 @@ class CurrentlyActive extends StatelessWidget {
                       (index) => Padding(
                         padding: const EdgeInsets.symmetric(vertical: 10),
                         child: ActiveCard(
-                            name: 'Macbook Pro 13 inchi',
+                            name: 'Macbook Pro 13 inchi mahal',
                             currentlocation: 'Gateway Jakarta',
                             status: 'Received At Origin Gateway',
                             nopaket: '0578 7363 9867',
@@ -88,26 +88,43 @@ class ActiveCard extends StatelessWidget {
                           ),
                         ),
                         SizedBox(width: 15),
-                        Text.rich(
-                          TextSpan(
-                            style: TextStyle(color: Colors.black),
-                            children: [
-                              TextSpan(
-                                text: "$name\n",
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '$name',
+                              maxLines: 1,
+                              style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
                               ),
-                              TextSpan(
-                                  text: "No. $nopaket\n",
-                                  style:
-                                      TextStyle(fontWeight: FontWeight.bold)),
-                              TextSpan(text: "$status\n"),
-                              TextSpan(text: "$currentlocation\n"),
-                            ],
-                          ),
+                            ),
+                            Text('No. $nopaket'),
+                            Text('$status'),
+                            Text('$currentlocation'),
+                          ],
                         ),
+                        // Text.rich(
+                        //   TextSpan(
+                        //     style: TextStyle(color: Colors.black),
+                        //     children: [
+                        //       TextSpan(
+                        //         text: "$name\n",
+                        //         style: TextStyle(
+                        //           fontSize: 18,
+                        //           fontWeight: FontWeight.bold,
+                        //         ),
+                        //       ),
+                        //       TextSpan(
+                        //           text: "No. $nopaket\n",
+                        //           style:
+                        //               TextStyle(fontWeight: FontWeight.bold)),
+                        //       TextSpan(text: "$status\n"),
+                        //       TextSpan(text: "$currentlocation\n"),
+                        //     ],
+                        //   ),
+                        // ),
                       ],
                     ),
                     SizedBox(

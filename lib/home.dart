@@ -75,7 +75,7 @@ class Home extends StatelessWidget {
             ),
           ),
           SizedBox(height: 20),
-          // ShortStats(),
+          ShortStats(),
           SizedBox(height: 20),
           // CurrentlyActive(),
           SectionTitle(text: 'Currently Active', press: () {}),
