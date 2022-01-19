@@ -1,6 +1,6 @@
 # package_tracker
 
-![SplahScreen](assets/1.splash_screen.png)
-![Home](assets/2.home_page.png)
-![Shipments](assets/3.shipments_page.png)
-![Detail](assets/4.detail_page.png)
+![SplahScreen](assets/preview1.png)
+![Home](assets/preview2.png)
+![Shipments](assets/preview3.png)
+![Detail](assets/preview4.png)
