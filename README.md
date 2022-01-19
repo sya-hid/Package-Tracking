@@ -1,4 +1,4 @@
-# package_tracker
+## Demo package_tracker
 
 ![SplahScreen](assets/1.splash_screen.png)
 ![Home](assets/2.home_page.png)
